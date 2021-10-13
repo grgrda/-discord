@@ -24,12 +24,19 @@ async def kick(ctx, user: discord.Member):
   if ctx.author.guild_permissions.administrator:
     await user.kick()
     await ctx.send(f"{user}をサーバーからkickしました")
-
+   else:
+       embed=discord.Embed(title="", description="このコマンドは管理者専用ですよ！", color=color)
+       await ctx.channel.send(embed=embed)
+    
 @bot.command()
 async def ban(ctx, user: discord.Member):
   if ctx.author.guild_permissions.administrator:
     await user.ban()
     await ctx.send(f"{user}をサーバーからbanしました")
+    else:
+        embed=discord.Embed(title="", description="このコマンドは管理者専用ですよ！", color=color)
+        await ctx.channel.send(embed=embed)
+
 
 @bot.command()
 async def clear(ctx,arg : int):
