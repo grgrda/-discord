@@ -2,9 +2,8 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
-import keep_alive
 
-bot = commands.Bot(command_prefix="x.")
+bot = commands.Bot(command_prefix="!")
 bot.remove_command("help")
 
 @bot.event
@@ -46,5 +45,4 @@ async def clear(ctx,arg : int):
         await asyncio.sleep(3)
         await ctx.channel.purge(limit=2)
 
-keep_alive.keep_alive()
 bot.run(os.getenv("token"))
